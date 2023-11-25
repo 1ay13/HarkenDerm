@@ -2,26 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*,
+*::before,
+*::after {
+	@apply box-border;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@layer base {
+    body {
+        @apply text-sm text-black md:text-base font-chivo;
+    }
+    
+    /* Scroll Behavior */
+	::-webkit-scrollbar {
+		@apply w-1 h-1 rounded-xl;
+	}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	/* Track */
+	::-webkit-scrollbar-track {
+		@apply bg-transparent rounded-xl;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		@apply bg-light-gray rounded-xl;
+	}
+	
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-opacity-80;
+	}
+
+	h1,
+	.h1 {
+		@apply font-semibold leading-snug md:text-xl-32 text-xl-28;
+	}
+
+	h2,
+	.h2 {
+		@apply font-semibold leading-snug text-xl-22 md:text-xl-26;
+	}
+
+	h3,
+	.h3 {
+		@apply text-xl font-semibold leading-snug md:text-2xl;
+	}
 }
